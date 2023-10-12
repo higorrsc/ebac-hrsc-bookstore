@@ -1,2 +1,3 @@
 # eback-hrsc-bookstore
-Django Book Store
+
+Django Bookstore
