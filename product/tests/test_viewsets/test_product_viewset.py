@@ -15,7 +15,7 @@ class TestProductViewSet(APITestCase):
 
     def setUp(self):
         self.user = UserFactory()
-        self.product = ProductFactory(title="pro controller", price=200)
+        self.product = ProductFactory(title="pro controller", price=200.00)
 
     def test_get_all_products(self):
         response = self.client.get(reverse("product-list", kwargs={"version": "v1"}))
