@@ -14,9 +14,9 @@ class CategoryFactory(factory.django.DjangoModelFactory):
 
 
 class ProductFactory(factory.django.DjangoModelFactory):
-    price = factory.Factory("pyint")
+    price = factory.Faker("pyint")
     category = factory.LazyAttribute(CategoryFactory)
-    title = factory.Factory("pystr")
+    title = factory.Faker("pystr")
 
     @factory.post_generation
     def category(self, create, extracted, **kwargs):
