@@ -30,7 +30,7 @@ class TestProductViewSet(APITestCase):
     def test_create_product(self):
         category = CategoryFactory()
         data = json.dumps(
-            {"title": "notebook", "price": 800, "category": [category.id]}
+            {"title": "notebook", "price": 800, "categories_id": [category.id]}
         )
 
         response = self.client.post(
