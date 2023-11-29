@@ -24,7 +24,7 @@ class TestProductViewSet(APITestCase):
 
     def test_get_all_products(self):
         token = Token.objects.get(user__username=self.user.username)
-        self.client.credentials(HTTP_AUTHORIZATION="Token " + token.key)
+        self.client.credentials(HTTP_AUTHORIZATION=f"Token {token.key}")
 
         response = self.client.get(reverse("product-list", kwargs={"version": "v1"}))
 
@@ -37,7 +37,7 @@ class TestProductViewSet(APITestCase):
 
     def test_create_product(self):
         token = Token.objects.get(user__username=self.user.username)
-        self.client.credentials(HTTP_AUTHORIZATION="Token " + token.key)
+        self.client.credentials(HTTP_AUTHORIZATION=f"Token {token.key}")
 
         category = CategoryFactory()
         data = json.dumps(
