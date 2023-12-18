@@ -26,7 +26,7 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
 # install poetry - respects $POETRY_VERSION & $POETRY_HOME
-RUN pip install "poetry==$POETRY_VERSION" psycopg2
+RUN pip install "poetry==$POETRY_VERSION"
 
 # copy project requirement files here to ensure they will be cached.
 WORKDIR $PYSETUP_PATH
@@ -35,6 +35,8 @@ COPY poetry.lock pyproject.toml ./
 # install runtime deps - uses $POETRY_VIRTUALENVS_IN_PROJECT internally
 RUN poetry install --no-dev && \
     poetry install
+
+RUN pip install psycopg2
 
 # application configuration
 WORKDIR /app
