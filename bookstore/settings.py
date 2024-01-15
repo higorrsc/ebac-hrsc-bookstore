@@ -158,4 +158,5 @@ DEBUG = int(os.environ.get("DEBUG", default=0))
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
+    "ebac-hrsc-bookstore-api-4683ded6e49d.herokuapp.com",
 ]  # os.environ.get("DJANGO_ALLOWED_HOSTS", "").split(" ")
