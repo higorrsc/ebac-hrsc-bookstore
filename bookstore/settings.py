@@ -26,8 +26,7 @@ SECRET_KEY = "django-insecure-sygx3!(@7ofkozp_m@hc$*(-=bhk7^*&#)3#*@kr9*(uq8pvvc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "higorrsc.pythonanywhere.com"]
 
 # Application definition
 
@@ -63,7 +62,7 @@ ROOT_URLCONF = "bookstore.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, "bookstore", "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -130,7 +129,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -150,14 +149,3 @@ REST_FRAMEWORK = {
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
-
-SECRET_KEY = os.environ.get("SECRET_KEY")
-
-DEBUG = int(os.environ.get("DEBUG", default=0))
-
-ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-    "ebac-hrsc-bookstore-api-4683ded6e49d.herokuapp.com",
-    "higorrsc.pythonanywhere.com",
-]  # os.environ.get("DJANGO_ALLOWED_HOSTS", "").split(" ")
